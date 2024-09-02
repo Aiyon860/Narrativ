@@ -1,0 +1,116 @@
+<div class="container row mx-auto my-3">
+  <div class="col-sm-2">
+    <!--  -->
+  </div>
+
+  <form action="/posts" method="post" class="col-sm-8 bg-white rounded-4 p-4 shadow-sm">
+    <h3 class="montserrat-bold mb-4">Create New Blog Post</h3>
+
+    <div class="mb-3">
+      <label for="title-blog" id="title-head-text" class="form-label open-sans-semi-bold">Title</label>
+      <input name="title" type="text" class="form-control rounded-3 text-black" id="title-blog" maxlength="60" autocomplete="off" required>
+      <div id="label-below-title" class="characters-remaining-green form-text open-sans-bold">
+        <span id="character-count">60</span> <span id="word-characters">characters</span> remaining
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="subtitle-blog" id="subtitle-head-text" class="form-label open-sans-semi-bold">Subtitle</label>
+      <input name="subtitle" type="text" class="form-control rounded-3 text-black" id="subtitle-blog" autocomplete="off" required>
+    </div>
+
+    <div class="mb-3">
+      <label id="content-head-text" class="form-label d-block open-sans-semi-bold" for="content-blog">Content</label>
+      <textarea name="content" id="content-blog" class="w-100 rounded-3 text-black" autocomplete="off" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="subtitle-blog" id="category-head-text" class="form-label open-sans-semi-bold">Category</label>
+      <select name="category" id="category-select" class="form-select rounded-3 text-black open-sans-regular" required>
+        <option value="">Select a category</option>
+        <option value="1">Health and Wellness</option>
+        <option value="2">Personal Finance</option>
+        <option value="3">Travel</option>
+        <option value="4">Food and Cooking</option>
+        <option value="5">Lifestyle</option>
+        <option value="6">Fashion and Beauty</option>
+        <option value="7">Business and Entrepreneurship</option>
+        <option value="8">Education</option>
+        <option value="9">Sports</option>
+        <option value="10">Entertainment</option>
+        <option value="11">Politics and Current Events</option>
+        <option value="12">Science</option>
+        <option value="13">Environment and Sustainability</option>
+        <option value="14">DIY and Crafts</option>
+        <option value="15">Parenting and Family</option>
+        <option value="16">Self-improvement</option>
+        <option value="17">Book Reviews and Literature</option>
+        <option value="18">Music</option>
+        <option value="19">Art and Design</option>
+        <option value="20">Career Advice</option>
+        <option value="21">Fitness</option>
+        <option value="22">Pets and Animals</option>
+        <option value="23">Automotive</option>
+        <option value="24">Gaming</option>
+        <option value="25">Photography</option>
+        <option value="26">Gardening</option>
+        <option value="27">Home Decor</option>
+        <option value="28">Relationships and Dating</option>
+        <option value="29">Humor and Satire</option>
+        <option value="30">Technology</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="tags-blog" id="tags-head-text" class="form-label open-sans-semi-bold">Tags (Comma-Separated)</label>
+      <input name="tags" type="text" class="form-control rounded-3 text-black" id="tags-blog" autocomplete="off" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="featured-image-blog" id="featured-image-head-text " class="form-label open-sans-semi-bold">Featured Image</label>
+
+      <div id="image-input-container" class="form-control h-auto rounded-3 border-dashed text-black">
+        <div class="row">
+          <div class="col-sm-2 col-1 px-2">
+            <!--  -->
+          </div>
+
+          <div id="image-input-container-middle" class="px-0 col-sm-8 col-10 d-flex flex-column justify-content-center align-items-center py-4">
+            <input name="imageTitle" type="file" id="featured-image-blog" class="image-input d-none" accept="image/png, image/jpg, image/jpeg">
+            <input name="base64image" type="text" class="d-none">
+  
+            <div id="no-image-attached-container" class="d-flex flex-column justify-content-center align-items-center">
+              <img class="upload-icon img-fluid" src="/images/create-update/upload-icon.png" alt="upload-icon" class="mb-1">
+
+              <small id="upload-a-image-text" class="form-text text-center open-sans-regular">
+                <span class="text-primary open-sans-bold">Upload a image</span> or drag and drop
+              </small>
+              <small id="png-jpg-jpeg-text" class="form-text text-center open-sans-regular">PNG, JPG, or JPEG up to 10MB</small>
+            </div>
+
+            <div id="file-limit-error" class="d-flex flex-column justify-content-center align-items-center">
+              <!-- will be added from JS -->
+            </div>
+    
+            <div id="image-attached-container" class="d-flex flex-column justify-content-center align-items-center">
+              <!-- will be added from JS -->
+            </div>
+          </div>
+
+          <div class="px-2 text-end col-sm-2 col-1">
+            <div id="close-button-create-update-container" class="col d-none">
+              <button id="close-button-featured-image-or-error" type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="create-button" type="submit" class="btn btn-primary w-100 open-sans-bold">Create Post</button>
+    <a href="/" id="cancel-button-mobile" type="button" class="btn btn-outline-dark w-100 mt-2 open-sans-bold text-black" >Cancel Post</a>
+  </form>
+
+  <div class="col-sm-2 text-start">
+    <a href="/" id="close-button-create-update-section" type="button" class="btn-close rounded-circle p-2"></a>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<header class="py-3 bg-header sticky-top">
+  <div class="container">
+    <div id="navbar-container" class="row d-flex flex-wrap align-items-center justify-content-between">
+      <div class="col d-flex gap-2 align-items-center">
+        <a id="product-logo" href="/" class="d-flex align-items-center text-decoration-none gap-2">
+          <img src="/images/general/book-open.png" alt="web logo" width="48">
+          <span class="product-name h1 montserrat-extra-bold mb-0 text-white">Narrativ</span>
+        </a>
+      </div>
+
+      <form id="search-blog" class="col rounded-4" role="search">
+        <input name="searched-blogs" type="search" class="form-control form-control-lg open-sans-regular bg-search-button rounded-4 text-white" placeholder="Search blogs..." aria-label="Search">
+      </form>
+
+      <div class="text-end col">
+        <form action="/posts/new" method="get" role="button" class="d-inline-block">
+          <button type="submit" id="new-post-button" class="btn btn-lg btn-header bg-main rounded-4 open-sans-bold me-2">
+            <i id="new-post-button-text" class="fa fa-plus fa-bars me-1"></i>New Post
+          </button>
+        </form>
+
+        <button type="button" id="profile-or-bars" class="btn btn-lg btn-header bg-main rounded-4 p-0">
+          <% if (locals.username === "Daniel") { %>
+            <img class="img-fluid profile-pic rounded-header m-2" src="/images/navbar/logo-daniel-icon.jpg" alt="daniel-user-profile-pic" loading="lazy">
+          <% } else { %>
+            <img class="img-fluid profile-pic rounded-header m-2" src="/images/navbar/logo-tirza-icon.jpg" alt="tirza-user-profile-pic" loading="lazy">
+          <% } %>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

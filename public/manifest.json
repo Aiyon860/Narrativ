@@ -1,0 +1,16 @@
+{
+  "name": "My Simple Blog - Narrativ",
+  "short_name": "Narrativ",
+  "description": "A simple blog web application built with Node.js and Express",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9EEE7",
+  "theme_color": "#F9EEE7",
+  "icons": [
+    
+  ],
+  "orientation": "any",
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}

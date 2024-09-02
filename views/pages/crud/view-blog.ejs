@@ -1,0 +1,100 @@
+<div class="container p-5">
+  <div class="row g-5 mb-sm-5 mb-1">
+    <div class="col col-md-2 col-lg-3">
+      <!--  -->
+    </div>
+
+    <div id="main-blog-content" class="col-12 col-md-8 col-lg-6 px-0">
+      <h1 id="blog-title-view" class="montserrat-extra-bold mb-4"><%= locals.title %></h1>
+      
+      <% const fullUTCDate = locals.updatedAt %>
+      <% const [month, number, year] = [fullUTCDate.toLocaleString('en-US', { month: 'long' }), fullUTCDate.getUTCDate(), fullUTCDate.getUTCFullYear()] %>
+
+      <h6 id="blog-author-date-view" class="open-sans-regular mb-4">By <span id="author-name-description" class="open-sans-bold"><%= locals.author %></span> - <%= month %> <%= number %>, <%= year %></h6>
+
+      <h5 id="blog-subtitle-view" class="open-sans-regular mb-4"><%= locals.subtitle %></h5>
+
+      <img src="<%= locals.image.base64image %>" id="image-blog" class="img-fluid rounded-5 mb-4" alt="image">
+
+      <% for (let i = 0; i < ; ++i) { %>
+        <p class="text-content open-sans-regular fs-5">
+          
+        </p>
+      <% } %>
+
+      <p class="text-content open-sans-regular fs-5">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis duis aliquet habitasse massa cubilia fames class urna. Metus lectus blandit torquent ac imperdiet ad dolor. Etiam elit felis condimentum lacinia odio; aliquet curae dui conubia. Id senectus dui porta ultricies morbi. Dictum ante natoque odio; class velit leo augue in. Lobortis erat sagittis facilisis luctus dignissim; natoque purus eros vel. In torquent gravida inceptos, dignissim duis mus. Justo proin vulputate iaculis, vestibulum senectus viverra.
+      </p>
+
+      <p class="text-content open-sans-regular fs-5">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis duis aliquet habitasse massa cubilia fames class urna. Metus lectus blandit torquent ac imperdiet ad dolor. Etiam elit felis condimentum lacinia odio; aliquet curae dui conubia. Id senectus dui porta ultricies morbi. Dictum ante natoque odio; class velit leo augue in. Lobortis erat sagittis facilisis luctus dignissim; natoque purus eros vel. In torquent gravida inceptos, dignissim duis mus. Justo proin vulputate iaculis, vestibulum senectus viverra.
+      </p>
+
+      <p class="text-content open-sans-regular fs-5">
+        Venenatis sem quisque sodales orci congue blandit. Conubia auctor sem ac ac ullamcorper erat quisque interdum. Tempor malesuada eleifend per malesuada leo primis. Netus diam proin cubilia nullam vel. Nulla platea neque consequat dignissim facilisi. Leo vivamus enim ipsum erat fringilla. Id porttitor tortor dis aliquet nunc purus suspendisse consequat.
+      </p>
+
+      <p class="text-content open-sans-regular fs-5">
+        Bibendum imperdiet accumsan; sapien parturient eros velit. Eleifend mattis ullamcorper massa montes congue malesuada aliquam duis. Interdum efficitur scelerisque donec elementum volutpat at nec. Quisque fermentum vulputate, eget laoreet proin pharetra tortor. Euismod molestie nec vel luctus ut sociosqu. Molestie taciti aliquet nunc nullam curae.
+      </p>
+
+      <p class="text-content open-sans-regular fs-5">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis duis aliquet habitasse massa cubilia fames class urna. Metus lectus blandit torquent ac imperdiet ad dolor. Etiam elit felis condimentum lacinia odio; aliquet curae dui conubia. Id senectus dui porta ultricies morbi. Dictum ante natoque odio; class velit leo augue in. Lobortis erat sagittis facilisis luctus dignissim; natoque purus eros vel. In torquent gravida inceptos, dignissim duis mus. Justo proin vulputate iaculis, vestibulum senectus viverra.
+      </p>
+      
+      <p class="text-content open-sans-regular fs-5">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis duis aliquet habitasse massa cubilia fames class urna. Metus lectus blandit torquent ac imperdiet ad dolor. Etiam elit felis condimentum lacinia odio; aliquet curae dui conubia. Id senectus dui porta ultricies morbi. Dictum ante natoque odio; class velit leo augue in. Lobortis erat sagittis facilisis luctus dignissim; natoque purus eros vel. In torquent gravida inceptos, dignissim duis mus. Justo proin vulputate iaculis, vestibulum senectus viverra.
+      </p>
+
+      <p class="text-content open-sans-regular fs-5">
+        Venenatis sem quisque sodales orci congue blandit. Conubia auctor sem ac ac ullamcorper erat quisque interdum. Tempor malesuada eleifend per malesuada leo primis. Netus diam proin cubilia nullam vel. Nulla platea neque consequat dignissim facilisi. Leo vivamus enim ipsum erat fringilla. Id porttitor tortor dis aliquet nunc purus suspendisse consequat.
+      </p>
+
+      <p class="text-content open-sans-regular fs-5">
+        Bibendum imperdiet accumsan; sapien parturient eros velit. Eleifend mattis ullamcorper massa montes congue malesuada aliquam duis. Interdum efficitur scelerisque donec elementum volutpat at nec. Quisque fermentum vulputate, eget laoreet proin pharetra tortor. Euismod molestie nec vel luctus ut sociosqu. Molestie taciti aliquet nunc nullam curae.
+      </p>
+
+      <div id="author-info-view" class="container bg-black p-4 px-5 rounded-4 my-5">
+        <h3 id="author-blog-title-footer" class="montserrat-bold mb-3">Zephyr Moss</h3>
+        <p id="author-blog-description-footer" class="open-sans-semi-bold-italic text-white lh-sm">Zephyr Moss Bibendum imperdiet accumsan; sapien parturient eros velit. Eleifend mattis ullamcorper massa montes congue malesuada aliquam duis.</p>
+      </div>
+    </div>
+
+    <div class="col col-md-2 col-lg-3">
+      <div class="position-absolute h-100">
+        <div class="back-to-top-view-blog container position-fixed bg-primary rounded-circle d-flex justify-content-center align-items-center">
+          <i class="fa fa-chevron-up"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="read-next">
+  <div id="myCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="container">
+      <div class="row g-5 w-75 mx-auto">
+        <div class="col-12 col-md-6 mb-4">
+          <h2 id="read-next-title" class="montserrat-bold">Read Next</h2>
+        </div>
+        <div class="col-12 col-md-6 mb-4 rest-part-read-next">
+          <!--  -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-inner mt-sm-2 mt-0">
+      
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

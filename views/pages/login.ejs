@@ -1,0 +1,88 @@
+<div class="position-relative">
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card rounded-4">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="/images/login/login-side-image.jpg"
+                  alt="login form" class="img-fluid border-radius-left-1 h-100"/>
+              </div>
+  
+              <div class="bg-login-card col-md-6 col-lg-7 d-flex align-items-center border-radius-right-1">
+                <div class="card-body p-4 p-lg-5 text-white">
+                  <form action="/login" method="post">
+                    <div class="d-flex gap-2 align-items-center mb-3 pb-1">
+                      <img src="/images/general/book-open.png" alt="web logo" width="48">
+                      <span class="h1 montserrat-extra-bold mb-0">Narrativ</span>
+                    </div>
+  
+                    <h5 class="mb-4 pb-3 open-sans-semi-bold" style="letter-spacing: 1px;">Sign into your account</h5>
+  
+                    <div class="">
+                      <input name="username" type="text" id="form-username" class="form-control form-control-lg bg-login-input open-sans-regular bg-transparent focus-ring" placeholder="Username" autocomplete="off" required/>
+                      <label for="form-username"></label>
+                    </div>
+  
+                    <div class="mb-3">
+                      <input name="password" type="password" id="form-password" class="form-control form-control-lg open-sans-regular bg-transparent focus-ring-light" placeholder="Password" autocomplete="off" required/>
+                      <label for="form-password"></label>
+                    </div>
+  
+                    <div class="login-button pt-1 mb-4">
+                      <button type="submit" class="btn bg-login-button btn-lg btn-block text-white w-100 open-sans-medium">Login</button>
+                    </div>
+  
+                    <a class="small text-muted" href="#!"></a>
+                    <p class="mb-5 pb-lg-2">
+                      <a href="#!"></a>
+                    </p>
+  
+                    <a href="/" class="small text-light">Terms of use.</a>
+                    <a href="/" class="small text-light">Privacy policy</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <% if (locals.title !== null) { %>
+    <div class="d-flex justify-content-center align-items-center error-message vh-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl col-xl col-lg col-md-3 col-sm-2 col-1">
+            <!--  -->
+          </div>
+      
+          <div class="col-xxl col-xl col-lg col-md-6 col-sm-8 col-10">
+            <div class="card bg-main rounded-4 pt-2">
+              <img class="img-fluid w-50 mt-4" src="/images/login/x-circle.svg" alt="x-circle">
+          
+              <div class="card-body text-center">
+                <p class="open-sans-bold card-title error-color error-title lh-base text-wrap">
+                  <%= locals.title %>
+                </p>
+                <p class="open-sans-regular card-text error-description lh-sm text-wrap">
+                  <%= locals.description %>
+                </p>
+              </div>
+          
+              <div class="ok-error-button card-body text-center mb-3">
+                <a href="/" class="btn bg-error-color text-uppercase text-white">ok</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xxl col-xl col-lg col-md-3 col-sm-2 col-1">
+            <!--  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  <% } %>
+</div>

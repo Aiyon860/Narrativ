@@ -10,7 +10,7 @@ export class BlogData {
    * @param {string} category
    * @param {string[]} tags
    * @param {object} image
-   * @param {string} author
+   * @param {object} author
   */
 
   constructor(id, title, subtitle, content, category, tags, image, author) {
@@ -22,8 +22,8 @@ export class BlogData {
       createdAt, updatedAt, author 
     };
   }
-}
+} 
 
 export function findBlog(blogs, id) {
-  return blogs.find((blog) => blog.id === id);
+  return blogs.find((blog) => blog._data.id === id);
 }

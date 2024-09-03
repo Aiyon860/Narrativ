@@ -2,15 +2,26 @@
 
 import { BlogData } from "../data/blog.js"
 import { findUser, users } from "../data/user.js";
-import { separateTags } from "../utils/helpers.js";
+import { modifyBlogContent, separateTags } from "../utils/helpers.js";
 
 export function insertBlog(req, res, next) {
   const { title, subtitle, content, category, tags, imageTitle, base64image } = req.body;
   const author = req.session.user;
+  const name = author._data.username;
+  const bio = author._data.bio;
   
   const user = findUser(users, author._data.username, author._data.password);
 
-  const blogObj = new BlogData(user._data.blogs.length + 1, title, subtitle, content, category, separateTags(tags), { imageTitle, base64image }, author._data.username);
+  const blogObj = new BlogData(
+    user._data.blogs.length + 1, 
+    title, 
+    subtitle, 
+    modifyBlogContent(content), 
+    category, 
+    separateTags(tags), 
+    { imageTitle, base64image }, 
+    { name, bio }
+  );
 
   user._data.blogs.push(blogObj);
 

@@ -25,6 +25,8 @@
       </div>
     </div>
   </div>
+<% } else if (locals.isViewingBlog) { %>
+  <%- include("crud/view-blog.ejs", { user: locals.user, blog: locals.blog }) %>
 <% } else { %>
   <div class="position-absolute">
     <div class="back-to-top-home container position-fixed bg-primary rounded-circle d-flex justify-content-center align-items-center">
@@ -45,7 +47,7 @@
           <div class="card bg-main border-0">
             <div class="img-container position-relative">
               <div class="img-inner-container position-relative overflow-hidden rounded-4">
-                <a href="">
+                <a href="posts/<%= blog.id %>">
                   <img src="<%= blog.image.base64image %>" class="actual-image-thumbnail card-img-top rounded-4" alt="image">
                 </a>
               </div>
@@ -76,9 +78,9 @@
             </div>
   
             <div class="card-body px-0">
-              <h3 id="blog-title-thumbnail" class="card-title montserrat-bold mb-3"><a href="" class="text-black text-decoration-none"><%= blog.title %></a></h3>
+              <h3 id="blog-title-thumbnail" class="card-title montserrat-bold mb-3"><a href="posts/<%= blog.id %>" class="text-black text-decoration-none"><%= blog.title %></a></h3>
               <h6 class="card-subtitle mb-3 text-muted open-sans-regular"><%= blog.subtitle %></h6>
-              <p class="card-text open-sans-semi-bold">By <%= blog.author %></p>
+              <p class="card-text open-sans-semi-bold">By <%= blog.author.name %></p>
             </div>
           </div>
         </div>

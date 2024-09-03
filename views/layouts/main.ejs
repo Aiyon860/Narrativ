@@ -16,7 +16,11 @@
       <% if (locals.isCreatingPost) { %>
         <%- include("../pages/crud/create.ejs") %>
       <% } else { %>
-        <%- include("../pages/home.ejs", { user: locals.user }) %>
+          <% if (locals.isViewingBlog) { %>
+            <%- include("../pages/home.ejs", { user: locals.user, isViewingBlog: locals.isViewingBlog, blog: locals.blog }) %>
+          <% } else { %>
+            <%- include("../pages/home.ejs", { user: locals.user }) %>
+          <% } %>
       <% } %>
     <% } else { %>
       <%- include("../pages/login.ejs", locals.error); %>

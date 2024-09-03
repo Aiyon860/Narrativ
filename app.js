@@ -35,10 +35,13 @@ const checkIfPostExist = (req, res, next) => {
   if (req.session.isPostExist) {
     res.status(200).render(
       "layouts/main.ejs", 
-      { user: req.session.user, isPostExist: req.session.isPostExist }
+      { 
+        user: req.session.user, 
+        isPostExist: req.session.isPostExist 
+      }
     );
   } else {
-    next()
+    next();
   }
 };
 

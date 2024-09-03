@@ -531,7 +531,7 @@ p#confirmation-message-description {
   }
 }
 
-.back-to-top-home {
+.back-to-top-home, .back-to-top-view-blog {
   z-index: 10;
   font-size: calc(1em + 1.25vw);
   background: rgb(0,255,135);
@@ -548,14 +548,16 @@ p#confirmation-message-description {
 
 #blog-title-view {
   font-size: calc(0.5em + 3.5vw);
+  overflow-wrap: anywhere;
 }
 
 #blog-author-date-view {
   font-size: calc(0.5em + 1vw);
 }
 
-#blog-subtitle-view {
+#blog-subtitle-view, #blog-content-view {
   font-size: calc(0.5em + 1vw);
+  overflow-wrap: anywhere;
 }
 
 #image-blog {
@@ -633,7 +635,7 @@ p.text-content {
   opacity: 1 !important;
 }
 
-.back-to-top-view-blog {
+.back-to-top-home, .back-to-top-view-blog {
   z-index: 10;
   font-size: calc(1em + 1.25vw);
   background: rgb(0,255,135);

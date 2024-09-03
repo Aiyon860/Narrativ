@@ -280,12 +280,17 @@ const closingConfirmMsg = () => {
   body.classList.remove("overflow-hidden");
 };
 
-closeConfirmMsg.addEventListener("click", closingConfirmMsg);
+if (closeConfirmMsg) {
+  closeConfirmMsg.addEventListener("click", closingConfirmMsg);
+}
 
 // ----- //
 
 const cancelConfirmBtn = document.querySelector("#bg-cancel-confirmation");
-cancelConfirmBtn.addEventListener("click", closingConfirmMsg);
+
+if (cancelConfirmBtn) {
+  cancelConfirmBtn.addEventListener("click", closingConfirmMsg);
+}
 /* -----> End <----- */
 
 /* -----> Adding Zoom Animation According to User's Cursor Position on The Image Thumbnail <----- */
@@ -293,27 +298,29 @@ const imageInnerContainer = document.querySelectorAll('.img-inner-container');
 const image = document.querySelectorAll(".actual-image-thumbnail");
 const ZOOM_LEVEL = 1.5;
 
-for (let i = 0; i < imageInnerContainer.length; ++i) {
-  imageInnerContainer[i].addEventListener("mousemove", (e) => {
-    const rect = imageInnerContainer[i].getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+if (imageInnerContainer && image) {
+  for (let i = 0; i < imageInnerContainer.length; ++i) {
+    imageInnerContainer[i].addEventListener("mousemove", (e) => {
+      const rect = imageInnerContainer[i].getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = imageInnerContainer[i].clientWidth / 2;
+      const centerY = imageInnerContainer[i].clientHeight / 2;
+      
+      const percentX = (x - centerX) / centerX;
+      const percentY = (y - centerY) / centerY;
+      
+      const transformX = -percentX * 25; // Adjust this value to control horizontal movement
+      const transformY = -percentY * 25; // Adjust this value to control vertical movement
+      
+      image[i].style.transform = `translate(${transformX}px, ${transformY}px) scale(${ZOOM_LEVEL})`;
+    });
     
-    const centerX = imageInnerContainer[i].clientWidth / 2;
-    const centerY = imageInnerContainer[i].clientHeight / 2;
-    
-    const percentX = (x - centerX) / centerX;
-    const percentY = (y - centerY) / centerY;
-    
-    const transformX = -percentX * 25; // Adjust this value to control horizontal movement
-    const transformY = -percentY * 25; // Adjust this value to control vertical movement
-    
-    image[i].style.transform = `translate(${transformX}px, ${transformY}px) scale(${ZOOM_LEVEL})`;
-  });
-  
-  imageInnerContainer[i].addEventListener("mouseleave", () => {
-    image[i].style.transform = "translate(0, 0) scale(1)";
-  });
+    imageInnerContainer[i].addEventListener("mouseleave", () => {
+      image[i].style.transform = "translate(0, 0) scale(1)";
+    });
+  }
 }
 /* -----> End <----- */
 
@@ -329,7 +336,7 @@ rowComponent.innerHTML = `<div class="container">
 
 const blogComponentOnRows = document.createElement("div");
 blogComponentOnRows.classList.add("col-12", "col-md-6", "col-xl-4", "read-next-blog");
-blogComponentOnRows.innerHTML = `<div class="card border-0">
+blogComponentOnRows.innerHTML = `<div class="card border-0 bg-transparent">
                                   <div class="img-container position-relative">
                                     <div class="img-inner-container position-relative overflow-hidden rounded-4">
                                       <img src="pic.jpg" class="actual-image-thumbnail card-img-top rounded-4" alt="image">
@@ -352,7 +359,14 @@ const rowsInfo = {
 };
 
 const addCarousel = () => {
+  const carousel = document.getElementById("myCarousel");
+
+  if (!carousel) {
+    return;
+  }
+
   const width = window.innerWidth;
+
   if (width >= 1440) {
     rowsInfo.amount = 2;
     rowsInfo.active_position = 1
@@ -362,12 +376,6 @@ const addCarousel = () => {
   } else {
     rowsInfo.amount = 6;
     rowsInfo.active_position = 1;
-  }
-
-  const carousel = document.getElementById("myCarousel");
-
-  if (!carousel) {
-    return;
   }
 
   const innerCarouselContainer = document.querySelectorAll(".carousel-inner")[0];
@@ -453,17 +461,35 @@ const adjustBackToTopContainer = (e) => {
   container.style.height = `${containerSize}px`;
 }
 
+/*
+ * This "popstate" event is fired when navigating through the browser's history, including when using the browser's back and forward buttons or when manipulating the history programmatically.
+ * This event listener will trigger whenever the active history entry changes, which includes:
+ * 1. Clicking the browser's back or forward buttons
+ * 2. Calling history.back(), history.forward(), or history.go()
+ * 3. Calling history.pushState() or history.replaceState()
+ */
+window.addEventListener("popstate", adjustBackToTopContainer);
 window.addEventListener("load", adjustBackToTopContainer);
 window.addEventListener("resize", adjustBackToTopContainer);
 /* -----> End <----- */
 
 /* -----> Going All The Way Up <----- */
 const btn = document.querySelectorAll(".back-to-top-home")[0] || document.querySelectorAll(".back-to-top-view-blog")[0];
-btn.addEventListener("click", (e) => window.scrollTo(0, 0));
+
+if (btn) {
+  btn.addEventListener("click", (e) => window.scrollTo(0, 0));
+}
+
 /* -----> End <----- */
 
 /* -----> Remove Back-To-Top Button at Certain Breakpoints <----- */
 const removeBackToTop = () => {
+  const btn = document.querySelectorAll(".back-to-top-home")[0] || document.querySelectorAll(".back-to-top-view-blog")[0];
+
+  if (!btn) {
+    return;
+  }
+
   if (window.innerWidth < 768) {
     btn.classList.add("d-none");
   } else {
@@ -473,30 +499,4 @@ const removeBackToTop = () => {
 
 window.addEventListener("load", removeBackToTop);
 window.addEventListener("resize", removeBackToTop);
-/* -----> End <----- */
-
-/* -----> Assigning GET Request Operation to Blog Title and Thumbnail <----- */
-const openBlog = async (id) => {
-  const formData = new FormData();
-  formData.append("id", `${id}`);
-  
-  try {
-    await fetch(`https://localhost:3725/posts/${id}`, {
-      method: "GET",
-      body: formData,
-    });
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-const blog_id = document.querySelectorAll(".id-blog");
-const imgContainer = document.querySelectorAll(".img-container");
-const titleImgBlog = document.querySelectorAll(".blog-title-thumbnail");
-
-for (let i = 0; i < blog_id.length; ++i) {
-  const clickHandler = () => openBlog(blog_id[i]);
-  imgContainer[i].addEventListener("click", clickHandler);
-  titleImgBlog[i].addEventListener("click", clickHandler);
-}
 /* -----> End <----- */

@@ -8,8 +8,9 @@
         </a>
       </div>
 
-      <form id="search-blog" class="col rounded-4" role="search">
-        <input name="searched-blogs" type="search" class="form-control form-control-lg open-sans-regular bg-search-button rounded-4 text-white" placeholder="Search blogs..." aria-label="Search">
+      <form action="/posts/search" method="get" id="search-blog" class="col rounded-4" role="search">
+        <% const queryName = (locals.query ? locals.query : "") %>
+        <input name="q" type="search" class="form-control form-control-lg open-sans-regular bg-search-button rounded-4 text-white" placeholder="Search blogs..." aria-label="Search" value="<%= queryName %>">
       </form>
 
       <div class="text-end col">

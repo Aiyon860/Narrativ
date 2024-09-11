@@ -2,6 +2,8 @@
 <div class="confirmation-message d-none">
   <div class="d-flex justify-content-center align-items-center min-vh-100 sticky-top">
     <div class="container">
+      <div id="blog-id-confirmation-message" class="d-none"></div>
+
       <div class="row">
         <div class="col-xl col-lg-3 col-md-3 col-sm-2 col-1">
           <!--  -->
@@ -24,7 +26,7 @@
             </div>
 
             <div class="mb-5 row">
-              <p id="confirmation-message-description" class="col-12 col-lg-10 open-sans-regular">Are you sure you want to delete the blog post "<%= locals.title %>"? This action cannot be undone.</p>
+              <p id="confirmation-message-description" class="col-12 col-lg-10 open-sans-regular">Are you sure you want to delete the blog post "<span id="blog-title-confirmation-message"></span>"? This action cannot be undone.</p>
 
               <div class="col col-lg-2">
                 <!--  -->
@@ -33,7 +35,7 @@
 
             <div id="confirm-cancel-delete-container" class="text-end">
               <button id="bg-cancel-confirmation" class="btn open-sans-regular rounded-2 me-1">Cancel</button>
-              <a href="/" id="bg-delete-confirmation" class="btn open-sans-regular bg-red-danger rounded-2 text-white">Delete</a>
+              <button id="bg-delete-confirmation" class="btn open-sans-regular bg-red-danger rounded-2 text-white">Delete</button>
             </div>
           </div>
         </div>

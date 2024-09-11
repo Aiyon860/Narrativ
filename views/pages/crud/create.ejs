@@ -78,9 +78,11 @@
           <div id="image-input-container-middle" class="px-0 col-sm-8 col-10 d-flex flex-column justify-content-center align-items-center py-4">
             <input name="imageTitle" type="file" id="featured-image-blog" class="image-input d-none" accept="image/png, image/jpg, image/jpeg">
             <input name="base64image" type="text" class="d-none">
+            <input name="imageSize" type="text" class="d-none">
+            <input name="imageSizeUnit" type="text" class="d-none">
   
             <div id="no-image-attached-container" class="d-flex flex-column justify-content-center align-items-center">
-              <img class="upload-icon img-fluid" src="/images/create-update/upload-icon.png" alt="upload-icon" class="mb-1">
+              <img class="upload-icon img-fluid" src="/images/create-update/upload-icon.png" alt="upload-icon" class="mb-1" draggable="false">
 
               <small id="upload-a-image-text" class="form-text text-center open-sans-regular">
                 <span class="text-primary open-sans-bold">Upload a image</span> or drag and drop
@@ -106,8 +108,8 @@
       </div>
     </div>
 
-    <button id="create-button" type="submit" class="btn btn-primary w-100 open-sans-bold">Create Post</button>
-    <a href="/" id="cancel-button-mobile" type="button" class="btn btn-outline-dark w-100 mt-2 open-sans-bold text-black" >Cancel Post</a>
+    <button id="create-button" type="submit" class="btn btn-primary w-100 open-sans-bold">Create Blog</button>
+    <a href="/" id="cancel-button-mobile" type="button" class="btn btn-outline-dark w-100 mt-2 open-sans-bold text-black" >Cancel Blog</a>
   </form>
 
   <div class="col-sm-2 text-start">

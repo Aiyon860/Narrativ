@@ -5,12 +5,8 @@
 </div>
 
 <div class="container py-5 min-vh-100">
-  <div id="searched-blog-title" class="mb-4">
-    <h1 class="montserrat-extra-bold">Search results for “<%= locals.query %>”</h1>
-  </div>
-
-  <div class="row g-sm-5 g-0 mt-1">
-    <% const blogs = locals.blogs; %>
+  <div class="row g-sm-5 g-0">
+    <% const blogs = locals.user._data.blogs; %>
     <% for (let i = 0; i < blogs.length; ++i) { %>
       <% const blog = blogs[i]._data %>
       <div class="col-12 col-md-6 col-lg-4 mb-4">
@@ -30,7 +26,7 @@
 
             <div class="edit-delete-container container px-0 bg-primary position-absolute w-40 rounded-3 bg-white shadow">
               <div class="edit-container open-sans-regular rounded-top-3">
-                <a href="posts/<%= blog.id %>/edit" class="btn open-sans-regular">
+                <a href="posts/<%= blog.id %>/edit" class="btn open-sans-regular d-block text-start">
                   <div class="symbol-text">
                     <i class="fa fa-edit me-2"></i>
                     <span>Edit</span>

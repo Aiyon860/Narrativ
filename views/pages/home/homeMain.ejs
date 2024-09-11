@@ -1,0 +1,23 @@
+<%- include("../../partials/header.ejs", locals.user._data, locals.query) %>
+
+<% if (!locals.isPostExist && !locals.isSearchingPost) { %>
+
+  <%- include("postNotExist.ejs") %>
+
+<% } else if (locals.isViewingBlog) { %>
+
+  <%- include("../crud/viewBlog.ejs", { user: locals.user, blog: locals.blog }) %>
+
+<% } else if (locals.isSearchingPost) { %>
+
+  <%- include("../crud/search.ejs", { query: locals.query, blogs: locals.blogs }) %>
+  <%- include("../../pages/crud/delete.ejs") %>
+
+<% } else { %>
+
+  <%- include("postExist.ejs", { user: locals.user }) %>
+  <%- include("../../pages/crud/delete.ejs") %>
+
+<% } %>
+
+<%- include("../../partials/footer.ejs") %>

@@ -81,6 +81,10 @@ input#form-password.form-control::placeholder {
 
 .error-title {
   font-size: calc(1em + 1vw);
+  
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 
 .error-description {
@@ -101,6 +105,10 @@ input#form-password.form-control::placeholder {
 
 .img-fluid {
   margin: 0 auto;
+}
+
+.bg-header {
+  z-index: 5;
 }
 
 .bg-header, .bg-footer {
@@ -180,11 +188,24 @@ input[type=search]:focus {
 
 .bg-home-button {
   background-color: #5FAEB0;
-}
+  transform: scale(1);
+  transition: 100ms transform, 300ms background-color;
+  transition-timing-function: ease;
 
-.bg-home-button:hover {
-  background-color: #498B8C;
-  color: #F9EEE7;
+  &:hover, &:active {
+    background-color: #498B8C !important;
+    color: #F9EEE7 !important;
+    border-color: transparent !important;
+  }
+
+  &:hover {
+    transition: 300ms background-color ease;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+    transition: 100ms transform ease;
+  }
 }
 
 .home-button-text {
@@ -220,7 +241,8 @@ input[type=search]:focus {
   cursor: pointer;
 }
 
-textarea#content-blog {
+textarea#content-blog,
+textarea#content-blog-edit {
   border: 1px solid var(--bs-border-color) !important;
   min-height: 20rem;
   resize: none;
@@ -439,11 +461,11 @@ a#cancel-button-mobile {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 20;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(0.1rem);
+  backdrop-filter: blur(0.05rem);
 }
 
 .mb-half-a-rem {
@@ -648,4 +670,26 @@ p.text-content {
 		transform: scale(1.5);
     cursor: pointer;
 	}
+}
+
+#create-button {
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    transition: background-color 0.2s ease;
+  }
+}
+
+#update-button {
+  background-color: #16A34A;
+  border: none;
+  
+  &:hover {
+    background-color: #15803D;
+    transition: background-color 0.2s ease;
+  }
+}
+
+#blog-title-confirmation-message {
+  overflow-wrap: anywhere;
 }

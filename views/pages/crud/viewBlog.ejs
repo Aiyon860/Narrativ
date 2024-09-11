@@ -6,6 +6,8 @@
 
     <% const blog = locals.blog._data %>
 
+    <div id="id-blog-view" class="d-none"><%= blog.id %></div>
+
     <div id="main-blog-content" class="col-12 col-md-8 col-lg-6 px-0">
       <h1 id="blog-title-view" class="montserrat-extra-bold mb-4"><%= blog.title %></h1>
       
@@ -40,11 +42,11 @@
   </div>
 </div>
 
-<% if (locals.user._data.blogs.length > 1) { %>
-  <% const blogs = locals.user._data.blogs; %>
-  <% const rowsInfo = { amount: blogs.length, activePosition: 0 }; %>
-  
+<% const blogs = locals.user._data.blogs; %>
+<% const blogsAmount = blogs.length; %>
+<% if (blogsAmount > 1) { %>
   <div id="read-next">
+    <div id="user-blog-amount" class="d-none"><%= blogsAmount %></div>
     <div id="myCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
       <div class="container">
         <div class="row g-5 w-75 mx-auto">
@@ -58,35 +60,11 @@
       </div>
 
       <div class="carousel-indicators">
-        <% for (let i = 0; i < rowsInfo.amount; ++i){ %>
-          <button data-bs-target="#myCarousel" data-bs-slide-to="<%= i %>" class="<%= (i + 1 === rowsInfo.activePosition ? "active" : "") %>" aria-label="Slide <%= i + 1 %>"></button>
-        <% } %>
+
       </div>
       
       <div class="carousel-inner mt-sm-2 mt-0">
-        <% for (let i = 0; i < rowsInfo.amount; ++i) { %>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row g-5 w-75 mx-auto d-flex justify-content-center row-blogs">
-                <div class="col-12 col-md-6 col-xl-4 read-next-blog">
-                  <div class="card border-0 bg-transparent">
-                    <div class="img-container position-relative">
-                      <div class="img-inner-container position-relative overflow-hidden rounded-4">
-                        <img src="pic.jpg" class="actual-image-thumbnail card-img-top rounded-4" alt="image">
-                      </div>
-                    </div>
         
-                    <div class="card-body px-0">
-                      <h3 class="read-next-blog-title card-title montserrat-bold mb-3 d-inline-block"><%= blogs[i]._data.title %></h3>
-                      <h6 class="read-next-blog-subtitle card-subtitle mb-3 text-muted open-sans-regular"><%= blogs[i]._data.subtitle %></h6>
-                      <p class="read-next-blog-author card-text open-sans-semi-bold">By <%= blogs[i]._data.author.name %></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% } %>
       </div>
   
       <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">

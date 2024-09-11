@@ -24,8 +24,18 @@ class UserData {
 }
 
 export const users = [
-  new UserData("0001", "Daniel", "danielsukakucing", "Astrophysicist by day, competitive origami artist by night. When not unraveling the mysteries of the cosmos or folding intricate paper creations, Emma can be found teaching her cat to play chess."),
-  new UserData("0002", "Tirza", "tirzasukaanjing", "Former circus clown turned award-winning pastry chef. Liam brings the joy and whimsy of the big top to his decadent desserts, and is known for his gravity-defying cake sculptures that make guests laugh and gasp in equal measure.")
+  new UserData(
+    "0001", 
+    "Daniel", 
+    "danielsukakucing", 
+    "Astrophysicist by day, competitive origami artist by night. When not unraveling the mysteries of the cosmos or folding intricate paper creations, Emma can be found teaching her cat to play chess."
+  ),
+  new UserData(
+    "0002", 
+    "Tirza", 
+    "tirzasukaanjing", 
+    "Former circus clown turned award-winning pastry chef. Liam brings the joy and whimsy of the big top to his decadent desserts, and is known for his gravity-defying cake sculptures that make guests laugh and gasp in equal measure."
+  )
 ]
 
 export function findUser(users, username, password) {

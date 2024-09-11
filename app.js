@@ -32,6 +32,9 @@ const requireLogin = (req, res, next) => {
 };
 
 const checkIfPostExist = (req, res, next) => {
+  req.session.isViewingPost = false;
+  req.session.isEditingPost = false;
+
   if (req.session.isPostExist) {
     res.status(200).render(
       "layouts/main.ejs", 
@@ -46,7 +49,12 @@ const checkIfPostExist = (req, res, next) => {
 };
 
 app.get("/", requireLogin, checkIfPostExist, (req, res) => {
-  res.status(200).render("layouts/main.ejs", { user: req.session.user });
+  res.status(200).render(
+    "layouts/main.ejs", 
+    { 
+      user: req.session.user, 
+      isViewingPost: req.session.isViewingPost 
+    });
 });
 
 
